@@ -1,10 +1,14 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from database_setup import Restaurant, Base, MenuItem
 import cgi
 
-from database_setup import Restaurant, Base, MenuItem
-
+# set up database connection
+engine = create_engine('sqlite:///restaurantmenu.db')
+Base.metadata.bind = engine
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
 
 class webServerHandler(BaseHTTPRequestHandler):
 
@@ -14,11 +18,6 @@ class webServerHandler(BaseHTTPRequestHandler):
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
                 self.end_headers()
-
-                engine = create_engine('sqlite:///restaurantmenu.db')
-                Base.metadata.bind = engine
-                DBSession = sessionmaker(bind=engine)
-                session = DBSession()
                 
                 restaurants = session.query(Restaurant).all()
                 
@@ -27,7 +26,7 @@ class webServerHandler(BaseHTTPRequestHandler):
                 
                 for restaurant in restaurants:
                     output += "<section><h3>"
-                    output += str(restaurant.name)
+                    output += "%s" % restaurant.name
                     output += "</h3></section>"
 
                 output += "</body></html>"
