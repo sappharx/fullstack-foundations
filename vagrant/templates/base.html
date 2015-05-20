@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block head %}
+			<link rel="stylesheet" href="{{url_for('static', filename='bootstrap.min.css')}}" />
+			<style>
+				body {
+					padding-top: 70px;
+				}
+				#footer {
+					padding-top: 30px;
+				}
+			</style>
+			<title>{% block title %}{% endblock %}</title>
+		{% endblock %}
+	</head>
+	<body>
+	  {% block navigation %}
+		<nav class="navbar navbar-default navbar-fixed-top">
+	     <div class="container-fluid">
+	       <div class="navbar-header">
+	         <a href="/" class="navbar-brand">Vincent's Restaurant Index</a>
+			
+	         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hamburger-navigation">
+	           <span class="sr-only">Navigation toggle</span>
+	           <span class="icon-bar"></span>
+	           <span class="icon-bar"></span>
+	           <span class="icon-bar"></span>
+	         </button>
+	       </div>
+	       <div class="collapse navbar-collapse" id="hamburger-navigation">
+	         <div class="navbar-text navbar-right">
+	           <a class="navbar-link" href="#">
+	             Follow us!
+	           </a>
+	         </div>			 
+	         <ul class="nav navbar-nav" role="menu">
+				 {% block nav_items %}
+			   	 {% endblock nav_items %}
+	         </ul>			 
+	       </div>
+	     </div>
+	   </nav>	  
+	  {% endblock navigation %}
+	   
+		<div id="content">
+			{% block content %}{% endblock %}
+		</div>
+		
+		<div id="footer" class="container">
+			{% block footer %}
+				<div class="row">
+					<div class="">
+						<p style="text-align: center;">
+							&copy; Copyright 2015 by Vincent Sisk
+						</p>
+					</div>
+				</div>
+			{% endblock %}
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</body>
+</html>

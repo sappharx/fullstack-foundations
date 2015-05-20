@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Delete {{ restaurant.name }}{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="jumbotron">
+			<h2>Delete {{ restaurant.name }}</h2>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h4 style="text-align: center">
+					Are you sure you want to delete {{ restaurant.name }}?
+				</h4>
+			</div>
+		</div>
+		<div class="row" style="padding-top: 20px;">
+			<div class="col-xs-6">
+				<button type="submit" class="btn btn-danger pull-right">
+					Yes, get rid of it!
+				</button>
+			</div>
+			<div class="col-xs-6">
+				<button type="submit" class="btn btn-primary">
+					No, take me back
+				</button>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

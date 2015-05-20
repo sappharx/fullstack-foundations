@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Vincent's Restaurant Index {% endblock %}
+{% block nav_items %}
+	<li><a href="#">Create</a></li>
+	<li class="dropdown">
+	    <a class="dropdown-toggle" role="button" data-toggle="dropdown">Restaurants<span class="caret" /></a>
+	    <ul class="dropdown-menu">
+		    {% for restaurant in restaurants %}
+		        <li><a href="#">{{ restaurant.name }}</a></li>
+		    {% endfor %}
+	    </ul>
+    </li>
+{% endblock nav_items %}
+{% block content %}
+	<div class="container">
+		{% for restaurant in restaurants %}
+			<div class="row">
+				<div class="col-xs-6 col-xs-offset-3">
+					<a href="#">
+						<h3>{{ restaurant.name }}</h3>
+					</a>
+					<a href="#">
+						<button type="submit" class="btn btn-primary">
+							Edit Restaurant
+						</button>
+					</a>
+					<a href="#">
+						<button type="submit" class="btn btn-danger">
+							Delete Restaurant
+						</button>
+					</a>
+				</div>				
+			</div>	
+		{% endfor %}
+	</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Create New Restaurant{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="jumbotron">
+			<h2>Create New Restaurant</h2>
+		</div>
+		
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<label for="name" class="control-label">
+							What would you like the name of your new restaurant to be?
+						</label>
+					</div>					
+					<div class="col-md-6 col-md-offset-3">
+						<input type="text" name="name" id="name" placeholder="New Restaurant Name" class="form-control" />
+					</div>
+				</div>
+				<div class="row" style="padding-top: 20px;">
+					<div class="col-xs-6">
+						<button type="submit" class="btn btn-primary pull-right">
+							Create
+						</button>
+					</div>
+					<div class="col-xs-6">
+						<button type="submit" class="btn btn-warning">
+							Cancel
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+{% endblock content %}
