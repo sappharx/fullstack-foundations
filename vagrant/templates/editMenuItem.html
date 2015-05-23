@@ -2,5 +2,67 @@
 {% block title %}Edit {{ item.name }}{% endblock %}
 
 {% block content %}
-
+	<div class="container">
+		<div class="jumbotron">
+			<h2>{{ restaurant.name }}</h2>
+			<h3>Edit Menu Item</h3>
+		</div>
+		
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<label for="name" class="control-label">
+							What would you like to change the name of your dish to?
+						</label>
+					</div>
+					<div class="col-md-6 col-md-offset-3">
+						<input type="text" name="name" id="name" placeholder="Dish name" class="form-control"></input>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<label for="course" class="control-label">
+							What course is your dish a part of?
+						</label>
+					</div>
+					<div class="col-md-6 col-md-offset-3">
+						<input type="text" name="course" id="course" placeholder="Course" class="form-control"></input>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<label for="price" class="control-label">
+							What is the price of your dish?
+						</label>
+					</div>
+					<div class="col-md-6 col-md-offset-3">
+						<input type="text" name="price" id="price" placeholder="Price" class="form-control"></input>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<label for="description" class="control-label">
+							Describe your dish.
+						</label>
+					</div>
+					<div class="col-md-6 col-md-offset-3">
+						<input type="text" name="description" id="description" placeholder="Description" class="form-control"></input>
+					</div>
+				</div>
+				<div class="row" style="padding-top: 20px;">
+					<div class="col-xs-6">
+						<button type="submit" class="btn btn-primary pull-right">
+							Edit dish
+						</button>
+					</div>
+					<div class="col-xs-6">
+						<button type="submit" class="btn btn-warning">
+							Nevermind
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 {% endblock content %}

@@ -36,15 +36,15 @@ def showMenu(restaurant_id):
 	
 @app.route('/restaurant/<int:restaurant_id>/menu/new')
 def newMenuItem(restaurant_id):
-	return render_template('newMenuItem.html')
+	return render_template('newMenuItem.html', restaurant = restaurant)
 	
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit')
 def editMenuItem(restaurant_id, menu_id):
-	return render_template('editMenuItem.html', item = item)
+	return render_template('editMenuItem.html', restaurant = restaurant, item = item)
 	
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/delete')
 def deleteMenuItem(restaurant_id, menu_id):
-	return render_template('deleteMenuItem.html', item = item)
+	return render_template('deleteMenuItem.html', restaurant = restaurant, item = item)
 
 
 if __name__ == '__main__':
