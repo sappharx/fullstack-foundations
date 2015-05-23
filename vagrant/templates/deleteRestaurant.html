@@ -14,17 +14,21 @@
 				</h4>
 			</div>
 		</div>
-		<div class="row" style="padding-top: 20px;">
-			<div class="col-xs-6">
-				<button type="submit" class="btn btn-danger pull-right">
-					Yes, get rid of it!
-				</button>
+		<form class="form-horizontal" action="{{ url_for('deleteRestaurant', restaurant_id = restaurant.id) }}" method="post">
+			<div class="form-group">
+				<div class="row" style="padding-top: 20px;">
+					<div class="col-xs-6">
+						<button type="submit" class="btn btn-danger pull-right">
+							Yes, get rid of it!
+						</button>
+					</div>
+					<div class="col-xs-6">
+							<a href="{{ url_for('showMenu', restaurant_id = restaurant.id) }}" class="btn btn-primary">
+								No, take me back
+							</a>
+					</div>
+				</div>
 			</div>
-			<div class="col-xs-6">
-				<button type="submit" class="btn btn-primary">
-					No, take me back
-				</button>
-			</div>
-		</div>
+		</form>
 	</div>
 {% endblock content %}

@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 {% block title %} {{ restaurant.name }} {% endblock %}
 {% block nav_items %}
-	<li><a href="#">Edit Restaurant</a></li>
-	<li><a href="#">Delete Restaurant</a></li>
-	<li><a href="#">Add Menu Item</a></li>
+	<li>
+		<a href="{{ url_for('editRestaurant', restaurant_id = restaurant.id) }}">
+			Edit Restaurant
+		</a>
+	</li>
+	<li>
+		<a href="{{ url_for('deleteRestaurant', restaurant_id = restaurant.id) }}">
+			Delete Restaurant
+		</a>
+	</li>
+	<li>
+		<a href="{{ url_for('newMenuItem', restaurant_id = restaurant.id) }}">
+			Add Menu Item
+		</a>
+	</li>
 {% endblock nav_items %}
 {% block content %}
 	<div class="jumbotron row">
@@ -33,15 +45,11 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
-					<a href="#">
-						<button type="submit" class="btn btn-primary">
-							Edit Item
-						</button>
+					<a href="{{ url_for('editMenuItem', restaurant_id = restaurant.id, menu_id = item.id) }}" class="btn btn-primary">
+						Edit Item
 					</a>
-					<a href="#">
-						<button type="submit" class="btn btn-danger pull-right">
-							Delete Item
-						</button>
+					<a href="{{ url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = item.id) }}" class="btn btn-danger pull-right">
+						Delete Item
 					</a>
 				</div>
 			</div>

@@ -8,24 +8,29 @@
 			<h3>Delete {{ item.name }}</h3>
 		</div>
 		
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<h4 style="text-align: center">
-					Are you sure you want to delete {{ item.name }}?
-				</h4>
+		<form class="form-horizontal" action="{{ url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = item.id) }}" method="post">
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<h4 style="text-align: center">
+							Are you sure you want to delete {{ item.name }}?
+						</h4>
+					</div>
+				</div>
+				<div class="row" style="padding-top: 20px;">
+					<div class="col-xs-6">
+						<button type="submit" class="btn btn-danger pull-right">
+							Yes, take it away!
+						</button>
+					</div>
+					<div class="col-xs-6">
+						<a href="{{ url_for('showMenu', restaurant_id = restaurant.id) }}" class="btn btn-primary">							No, I'll keep it
+						</a>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="row" style="padding-top: 20px;">
-			<div class="col-xs-6">
-				<button type="submit" class="btn btn-danger pull-right">
-					Yes, take it away!
-				</button>
-			</div>
-			<div class="col-xs-6">
-				<button type="submit" class="btn btn-primary">
-					No, I'll keep it
-				</button>
-			</div>
-		</div>
+		</form>
+		
+		
 	</div>
 {% endblock content %}

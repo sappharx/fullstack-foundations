@@ -7,7 +7,7 @@
 			<h2>Create New Restaurant</h2>
 		</div>
 		
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="{{ url_for('newRestaurant') }}" method="post">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3">
@@ -26,9 +26,9 @@
 						</button>
 					</div>
 					<div class="col-xs-6">
-						<button type="submit" class="btn btn-warning">
+						<a href="{{ url_for('showRestaurants') }}" class="btn btn-warning">
 							Cancel
-						</button>
+						</a>
 					</div>
 				</div>
 			</div>
